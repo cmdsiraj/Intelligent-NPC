@@ -1,0 +1,183 @@
+name: "Grad Students — Thesis Semester"
+description: "7 Indian grad students navigating social dynamics in their final semester"
+ticks: 10
+max_tokens: 600
+prompt: "C:\\Users\\cmdsi\\OneDrive\\Desktop\\My Files\\my-projects\\intelligent-npc\\prompts\\system_prompt_main.yaml"
+
+npcs:
+  - name: "Siraj"
+    role: "NEWCOMER"
+    location: [5, 5]
+    personality:
+      bravery: 0.6
+      trust: 0.4
+      aggression: 0.2
+      cleverness: 0.95
+    goals:
+      - description: "get a referral from the professor before semester ends"
+        priority: 1.0
+      - description: "keep relationships intact with everyone in the apartment"
+        priority: 0.7
+
+  - name: "Aravind"
+    role: "INSTIGATOR"
+    location: [5, 7]
+    personality:
+      bravery: 0.9
+      trust: 0.3
+      aggression: 0.85
+      cleverness: 0.55
+    goals:
+      - description: "be seen as the strongest candidate in the cohort"
+        priority: 0.95
+      - description: "make sure my contribution on the group project is not questioned"
+        priority: 0.9
+
+  - name: "Lakshmi Narayana"
+    role: "COMPETITOR"
+    location: [5, 3]
+    personality:
+      bravery: 0.5
+      trust: 0.25
+      aggression: 0.6
+      cleverness: 0.92
+    goals:
+      - description: "finish thesis with the highest grade in the cohort"
+        priority: 1.0
+      - description: "get the professor referral — I earned it more than anyone else"
+        priority: 0.9
+
+  - name: "Sathvik"
+    role: "HELPER"
+    location: [7, 5]
+    personality:
+      bravery: 0.5
+      trust: 0.75
+      aggression: 0.25
+      cleverness: 0.75
+    goals:
+      - description: "finish my thesis — I keep getting pulled into helping others"
+        priority: 0.95
+      - description: "address being taken advantage of without blowing up the friendship"
+        priority: 0.7
+
+  - name: "Venky"
+    role: "MEDIATOR"
+    location: [3, 5]
+    personality:
+      bravery: 0.35
+      trust: 0.9
+      aggression: 0.1
+      cleverness: 0.6
+    goals:
+      - description: "keep the apartment drama-free until everyone submits their thesis"
+        priority: 0.95
+      - description: "make sure people contribute fairly to shared house responsibilities"
+        priority: 0.75
+
+  - name: "Hema"
+    role: "ANALYST"
+    location: [20, 5]
+    personality:
+      bravery: 0.65
+      trust: 0.6
+      aggression: 0.2
+      cleverness: 0.9
+    goals:
+      - description: "decide whether to report what I know about the group project to the professor"
+        priority: 0.85
+      - description: "stay out of personal conflicts while doing the right thing academically"
+        priority: 0.8
+
+  - name: "Meera"
+    role: "WORKER"
+    location: [20, 9]
+    personality:
+      bravery: 0.5
+      trust: 0.65
+      aggression: 0.4
+      cleverness: 0.55
+    goals:
+      - description: "submit my thesis on time without distractions"
+        priority: 1.0
+      - description: "understand the group dynamic before deciding who to trust"
+        priority: 0.6
+
+locations:
+  apartment: [5, 5]
+  university lab: [20, 5]
+  professor office: [25, 5]
+  library: [15, 5]
+  dining hall: [20, 10]
+  kitchen: [4, 5]
+
+events:
+  - name: "Aravind claims credit for group project"
+    type: "THEFT"
+    location: [25, 5]
+    description: "Aravind presented himself as the lead contributor of a project Siraj primarily built."
+    involved:
+      - npc: "Aravind"
+        role: "ACTOR"
+      - npc: "Siraj"
+        role: "TARGET"
+      - npc: "Hema"
+        role: "WITNESS"
+
+  - name: "Lakshmi used Sathvik's code without permission"
+    type: "THEFT"
+    location: [20, 5]
+    description: "Lakshmi submitted Sathvik's code as part of his individual assignment without crediting him."
+    involved:
+      - npc: "Lakshmi Narayana"
+        role: "ACTOR"
+      - npc: "Sathvik"
+        role: "TARGET"
+
+  - name: "Aravind ate the shared biryani with his friend"
+    type: "THEFT"
+    location: [4, 5]
+    description: "Aravind and his guest consumed most of the biryani Venky made from the shared house fund."
+    involved:
+      - npc: "Aravind"
+        role: "ACTOR"
+      - npc: "Venky"
+        role: "TARGET"
+      - npc: "Siraj"
+        role: "WITNESS"
+
+  - name: "Siraj helps Sathvik debug thesis code"
+    type: "DONATE"
+    location: [5, 5]
+    description: "Siraj helped Sathvik fix a critical bug in his thesis over the weekend."
+    involved:
+      - npc: "Siraj"
+        role: "ACTOR"
+      - npc: "Sathvik"
+        role: "TARGET"
+      - npc: "Venky"
+        role: "WITNESS"
+
+  - name: "Aravind gossips about Siraj to Meera"
+    type: "GOSSIP"
+    location: [20, 9]
+    description: "Aravind told Meera that Siraj visits the professor constantly just to get a referral."
+    involved:
+      - npc: "Aravind"
+        role: "ACTOR"
+      - npc: "Siraj"
+        role: "TARGET"
+      - npc: "Meera"
+        role: "WITNESS"
+
+  - name: "Hema shows Sathvik the real commit history"
+    type: "REPORT"
+    location: [20, 5]
+    description: "Hema showed Sathvik the git logs showing Aravind made minimal commits while taking lead credit."
+    involved:
+      - npc: "Hema"
+        role: "ACTOR"
+      - npc: "Aravind"
+        role: "TARGET"
+      - npc: "Sathvik"
+        role: "WITNESS"

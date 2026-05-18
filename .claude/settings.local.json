@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(.venv\\\\Scripts\\\\python.exe -c \"from api.app import app; print\\('API imports OK'\\)\")",
+      "PowerShell(Invoke-RestMethod -Uri \"http://localhost:8000/\" -Method Get 2>&1)",
+      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:8000/scenarios\"; [System.Text.Encoding]::UTF8.GetString\\($r.Content\\))"
+    ]
+  }
+}
